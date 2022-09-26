@@ -43,6 +43,23 @@ public class LoginPage {
 	WebElement btnLogin;
 	
 	
+	@FindBy(xpath="//*[@class='appHeader_labelForIssue__2_07h'][1]")
+	@CacheLookup
+	WebElement ErrMsg1;
+	
+	
+	@FindBy(xpath="//*[@class='appHeader_labelForIssue__2_07h'][2]")
+	@CacheLookup
+	WebElement ErrMsg2;
+	
+	@FindBy(xpath="//*[text() = 'Forgot password?']")
+	@CacheLookup
+	WebElement ForgotPassword;
+
+	@FindBy(xpath="//*[@class = 'MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button'][1]")
+	@CacheLookup
+	WebElement faq;
+	
 	@FindBy(xpath="//*[@id=\"simple-menu\"]/div[3]/ul/li")
 	@CacheLookup
 	WebElement btnLogout;
@@ -58,8 +75,30 @@ public class LoginPage {
 		txtPassword.sendKeys(pwd);
 	}
 	
+	public String UsernameErrMSG() {
+		return ErrMsg1.getText();
+	}
+	
+	public boolean UsernameErrMSG1() {
+		return ErrMsg1.isDisplayed();
+	}
+	
+	public String PasswordErrMSG() {
+		return ErrMsg2.getText();
+	}
+	
+	public boolean PasswordErrMSG1() {
+		return ErrMsg2.isDisplayed();
+	}
+	
+	
+	
 	public void clickLogin() {
 		btnLogin.click();
+	}
+	
+	public void faq() {
+		faq.click();
 	}
 	
 	public void clickLogout() {
@@ -72,5 +111,10 @@ public class LoginPage {
 	
 	public void findProfile() {
 		Profile.click();
+	}
+	
+	
+	public void ForgotPassword() {
+		ForgotPassword.click();
 	}
 }
